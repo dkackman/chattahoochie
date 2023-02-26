@@ -1,6 +1,7 @@
 import transformers
 import torch
 import typing as t
+# based on code form https://huggingface.co/PygmalionAI/pygmalion-6b
 
 
 def load(model_name, device):

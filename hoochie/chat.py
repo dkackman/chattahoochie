@@ -6,6 +6,8 @@ from .LLM.prompting import build_prompt_for
 import logging
 import re
 
+# based on code form https://huggingface.co/PygmalionAI/pygmalion-6b
+
 
 def set_global_logging_level(level=logging.ERROR, prefices=[""]):
     """

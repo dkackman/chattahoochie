@@ -1,5 +1,6 @@
 import re
 import typing as t
+# based on code form https://huggingface.co/PygmalionAI/pygmalion-6b
 
 BAD_CHARS_FOR_REGEX_REGEX = re.compile(r"[-\/\\^$*+?.()|[\]{}]")
 

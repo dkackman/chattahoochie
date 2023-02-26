@@ -4,6 +4,7 @@ import typing as t
 from .parsing import parse_messages_from_str
 
 logger = logging.getLogger(__name__)
+# based on code form https://huggingface.co/PygmalionAI/pygmalion-6b
 
 
 def build_prompt_for(

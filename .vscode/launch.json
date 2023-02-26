@@ -1,0 +1,112 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "tiny chat",
+            "type": "python",
+            "request": "launch",
+            "module": "swarm.chat",
+            "args": [
+                "-m",
+                "PygmalionAI/pygmalion-350m"
+            ],
+            "cwd": "${workspaceFolder}/",
+            "justMyCode": true
+        },
+        {
+            "name": "small chat",
+            "type": "python",
+            "request": "launch",
+            "module": "swarm.chat",
+            "args": [
+                "-m",
+                "PygmalionAI/pygmalion-1.3b"
+            ],
+            "cwd": "${workspaceFolder}/",
+            "justMyCode": true
+        },
+        {
+            "name": "medium chat",
+            "type": "python",
+            "request": "launch",
+            "module": "swarm.chat",
+            "args": [
+                "-m",
+                "bigscience/bloomz-3b"
+            ],
+            "cwd": "${workspaceFolder}/",
+            "justMyCode": true
+        },
+        {
+            "name": "bloomz 7b chat",
+            "type": "python",
+            "request": "launch",
+            "module": "hoochie.chat",
+            "args": [
+                "-m",
+                "bigscience/bloomz-7b1"
+            ],
+            "cwd": "${workspaceFolder}/",
+            "justMyCode": true
+        },
+        {
+            "name": "bloom 7b chat",
+            "type": "python",
+            "request": "launch",
+            "module": "hoochie.chat",
+            "args": [
+                "-m",
+                "bigscience/bloom-7b1"
+            ],
+            "cwd": "${workspaceFolder}/",
+            "justMyCode": true
+        },
+        {
+            "name": "bloom-mt 7b chat",
+            "type": "python",
+            "request": "launch",
+            "module": "hoochie.chat",
+            "args": [
+                "-m",
+                "bigscience/bloomz-7b1-mt"
+            ],
+            "cwd": "${workspaceFolder}/",
+            "justMyCode": true
+        },
+        {
+            "name": "pygmalion 6b chat",
+            "type": "python",
+            "request": "launch",
+            "module": "hoochie.chat",
+            "args": [
+                "-m",
+                "PygmalionAI/pygmalion-6b"
+            ],
+            "cwd": "${workspaceFolder}/",
+            "justMyCode": true
+        },
+        {
+            "name": "gpt-neox-20b",
+            "type": "python",
+            "request": "launch",
+            "module": "hoochie.chat",
+            "args": [
+                "-m",
+                "EleutherAI/gpt-neox-20b"
+            ],
+            "cwd": "${workspaceFolder}/",
+            "justMyCode": true
+        },
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        }
+    ]
+}

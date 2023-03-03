@@ -4,16 +4,16 @@ import typing as t
 # based on code form https://huggingface.co/PygmalionAI/pygmalion-6b
 
 
-def load(model_name, device):
+def load(model_name, device, tokenizer_type, model_type, load_in_8bit=False):
     print(f"Loading {model_name} to {device}...")
-    tokenizer = transformers.AutoTokenizer.from_pretrained(
+    tokenizer = tokenizer_type.from_pretrained(
         model_name, device_map="auto")
     bad_words_ids = [
         tokenizer(bad_word, add_special_tokens=False).input_ids
         for bad_word in ["Persona:", "Scenario:", "<START>"]
     ]
-    model = transformers.AutoModelForCausalLM.from_pretrained(
-        model_name, bad_words_ids=bad_words_ids, device_map="auto", load_in_8bit=True
+    model = model_type.from_pretrained(
+        model_name, bad_words_ids=bad_words_ids, device_map="auto", load_in_8bit=load_in_8bit
     )
     model.config.pad_token_id = model.config.eos_token_id
 

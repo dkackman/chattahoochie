@@ -215,7 +215,7 @@ python -m pip install --upgrade pip
 python -m pip install wheel setuptools
 
 pip install torch torchvision torchaudio
-pip install diffusers[torch] transformers[deepspeed] accelerate scipy ftfy concurrent-log-handler safetensors bitsandbytes
+pip install diffusers[torch] transformers accelerate scipy ftfy concurrent-log-handler safetensors bitsandbytes
 echo ""
 echo "done."
 echo ""

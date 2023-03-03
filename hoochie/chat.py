@@ -1,36 +1,14 @@
-import argparse
 from .LLM.agent import load, run_raw_inference
 import typing as t
 from .LLM.parsing import parse_messages_from_str
 from .LLM.prompting import build_prompt_for
-import logging
-import re
+from .app import _parse_args_from_argv, get_type
 
 # based on code form https://huggingface.co/PygmalionAI/pygmalion-6b
 
 
-def set_global_logging_level(level=logging.ERROR, prefices=[""]):
-    """
-    Override logging levels of different modules based on their name as a prefix.
-    It needs to be invoked after the modules have been loaded so that their loggers have been initialized.
-
-    Args:
-        - level: desired level. e.g. logging.INFO. Optional. Default is logging.ERROR
-        - prefices: list of one or more str prefices to match (e.g. ["transformers", "torch"]). Optional.
-          Default is `[""]` to match all active loggers.
-          The match is a case-sensitive `module_name.startswith(prefix)`
-    """
-    prefix_re = re.compile(rf'^(?:{ "|".join(prefices) })')
-    for name in logging.root.manager.loggerDict:
-        if re.match(prefix_re, name):
-            logging.getLogger(name).setLevel(level)
-
-
-set_global_logging_level(logging.CRITICAL)
-
-
-def main(model_name, device):
-    tokenizer, model = load(model_name, device)
+def main(model_name, device, tokenizer, model, load_in_8bit):
+    tokenizer, model = load(model_name, device, tokenizer, model, load_in_8bit)
     char_settings = {
         "char_name": "AI",
         "char_persona": "A helpful AI",
@@ -41,7 +19,7 @@ def main(model_name, device):
     generation_settings = {
         "do_sample": True,
         "max_new_tokens": 196,
-        "temperature": 0.5,
+        "temperature": 0.9,
         "top_p": 0.9,
         "top_k": 0,
         "typical_p": 1.0,
@@ -111,35 +89,10 @@ def inference_fn(
     return bot_message
 
 
-def _parse_args_from_argv() -> argparse.Namespace:
-    """Parses arguments coming in from the command line."""
-    parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "-m",
-        "--model-name",
-        help="HuggingFace Transformers model name.",
-    )
-    parser.add_argument(
-        "-d",
-        "--device",
-        default="cuda",
-        help="The device to run the model on - cpu or cuda.",
-    )
-    # parser.add_argument(
-    #     "-p",
-    #     "--persona",
-    #     help="Path to a configuration json that has the persona setup",
-    # )
-    # parser.add_argument(
-    #     "-c",
-    #     "--chat",
-    #     help="Path to a json file with chat history",
-    # )
-
-    return parser.parse_args()
-
-
 if __name__ == "__main__":
     args = _parse_args_from_argv()
 
-    main(model_name=args.model_name, device=args.device)
+    main(model_name=args.model_name, device=args.device,
+         tokenizer=get_type("transformers", args.tokenizer_type),
+         model=get_type("transformers", args.model_type),
+         load_in_8bit=args.load_in_8bit)

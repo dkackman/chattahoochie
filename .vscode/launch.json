@@ -8,7 +8,7 @@
             "name": "tiny chat",
             "type": "python",
             "request": "launch",
-            "module": "swarm.chat",
+            "module": "hoochie.chat",
             "args": [
                 "-m",
                 "PygmalionAI/pygmalion-350m"
@@ -20,7 +20,7 @@
             "name": "small chat",
             "type": "python",
             "request": "launch",
-            "module": "swarm.chat",
+            "module": "hoochie.chat",
             "args": [
                 "-m",
                 "PygmalionAI/pygmalion-1.3b"
@@ -32,7 +32,7 @@
             "name": "medium chat",
             "type": "python",
             "request": "launch",
-            "module": "swarm.chat",
+            "module": "hoochie.chat",
             "args": [
                 "-m",
                 "bigscience/bloomz-3b"
@@ -95,7 +95,25 @@
             "module": "hoochie.chat",
             "args": [
                 "-m",
-                "EleutherAI/gpt-neox-20b"
+                "EleutherAI/gpt-neox-20b",
+                "-l",
+                "True",
+                "-mt",
+                "GPTNeoXForCausalLM",
+                "-t",
+                "GPTNeoXTokenizerFast"
+            ],
+            "cwd": "${workspaceFolder}/",
+            "justMyCode": true
+        },
+        {
+            "name": "gpt-j-6B",
+            "type": "python",
+            "request": "launch",
+            "module": "hoochie.chat",
+            "args": [
+                "-m",
+                "EleutherAI/gpt-j-6B"
             ],
             "cwd": "${workspaceFolder}/",
             "justMyCode": true

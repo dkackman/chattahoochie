@@ -119,6 +119,18 @@
             "justMyCode": true
         },
         {
+            "name": "flan-ul2",
+            "type": "python",
+            "request": "launch",
+            "module": "hoochie.qna",
+            "args": [
+                "-m",
+                "google/flan-ul2"
+            ],
+            "cwd": "${workspaceFolder}/",
+            "justMyCode": true
+        },
+        {
             "name": "Python: Current File",
             "type": "python",
             "request": "launch",

@@ -11,7 +11,9 @@
             "module": "hoochie.chat",
             "args": [
                 "-m",
-                "PygmalionAI/pygmalion-350m"
+                "PygmalionAI/pygmalion-350m",
+                "-l",
+                "True"
             ],
             "cwd": "${workspaceFolder}/",
             "justMyCode": true
@@ -59,7 +61,9 @@
             "module": "hoochie.chat",
             "args": [
                 "-m",
-                "bigscience/bloom-7b1"
+                "bigscience/bloom-7b1",
+                "-l",
+                "True"
             ],
             "cwd": "${workspaceFolder}/",
             "justMyCode": true
@@ -71,7 +75,9 @@
             "module": "hoochie.chat",
             "args": [
                 "-m",
-                "bigscience/bloomz-7b1-mt"
+                "bigscience/bloomz-7b1-mt",
+                "-l",
+                "True"
             ],
             "cwd": "${workspaceFolder}/",
             "justMyCode": true
@@ -83,7 +89,9 @@
             "module": "hoochie.chat",
             "args": [
                 "-m",
-                "PygmalionAI/pygmalion-6b"
+                "PygmalionAI/pygmalion-6b",
+                "-l",
+                "True"
             ],
             "cwd": "${workspaceFolder}/",
             "justMyCode": true
@@ -113,7 +121,9 @@
             "module": "hoochie.chat",
             "args": [
                 "-m",
-                "EleutherAI/gpt-j-6B"
+                "EleutherAI/gpt-j-6B",
+                "-l",
+                "True"
             ],
             "cwd": "${workspaceFolder}/",
             "justMyCode": true
@@ -125,7 +135,11 @@
             "module": "hoochie.qna",
             "args": [
                 "-m",
-                "google/flan-ul2"
+                "google/flan-ul2",
+                "-l",
+                "True",
+                "-mt",
+                "T5ForConditionalGeneration",
             ],
             "cwd": "${workspaceFolder}/",
             "justMyCode": true
